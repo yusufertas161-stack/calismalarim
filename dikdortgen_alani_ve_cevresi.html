@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dikdörtgen Alan ve Çevre</title>
+</head>
+<body>
+    <h2>Dikdörtgen Alan ve Çevre Hesaplama</h2>
+    <input type="number" id="kisaKenar" placeholder="Kısa Kenar">
+    <input type="number" id="uzunKenar" placeholder="Uzun Kenar">
+    <button onclick="hesapla()">Hesapla</button>
+    <p id="alanSonuc"></p>
+    <p id="cevreSonuc"></p>
+
+    <script>
+        function hesapla() {
+            let k = Number(document.getElementById("kisaKenar").value);
+            let u = Number(document.getElementById("uzunKenar").value);
+            let alan = k * u;
+            let cevre = 2 * (k + u);
+            document.getElementById("alanSonuc").innerText = "Alan: " + alan;
+            document.getElementById("cevreSonuc").innerText = "Çevre: " + cevre;
+        }
+    </script>
+</body>
+</html>

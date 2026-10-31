@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Daire Alan ve Çevre</title>
+</head>
+<body>
+    <h2>Daire Alanı ve Çevresi Hesaplama</h2>
+    <input type="number" id="yariCap" placeholder="Yarıçap (r)">
+    <button onclick="daireHesapla()">Hesapla</button>
+    <p id="alan"></p>
+    <p id="cevre"></p>
+
+    <script>
+        function daireHesapla() {
+            let r = Number(document.getElementById("yariCap").value);
+            let alan = Math.PI * r * r;
+            let cevre = 2 * Math.PI * r;
+            document.getElementById("alan").innerText = "Alan: " + alan.toFixed(2);
+            document.getElementById("cevre").innerText = "Çevre: " + cevre.toFixed(2);
+        }
+    </script>
+</body>
+</html>

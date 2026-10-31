@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ad Yazdırma Uygulaması</title>
+</head>
+<body>
+    <h2>Ad Yazdırma</h2>
+    <input type="text" id="isimInput" placeholder="Adınızı girin">
+    <button onclick="yazdir()">Yazdır</button>
+    <p id="sonuc"></p>
+
+    <script>
+        function yazdir() {
+            let isim = document.getElementById("isimInput").value;
+            document.getElementById("sonuc").innerText = "Merhaba, " + isim + "!";
+        }
+    </script>
+</body>
+</html>
