@@ -1,3 +1,4 @@
 # JavaScript Temel Çalışmalarım
 
-BTK Akademi JavaScript eğitimi kapsamında hazırladığım temel HTML ve JavaScript uygulamaları:
+ JavaScript eğitiminde hazırladığım temel HTML ve JavaScript uygulamaları ve örnekler
+ 
