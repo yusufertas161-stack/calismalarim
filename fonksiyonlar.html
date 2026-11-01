@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fonksiyonlar Ödevi</title>
+</head>
+<body>
+    <h2>Fonksiyonlar Bölüm Ödevi</h2>
+    <div id="cikti"></div>
+
+    <script>
+        function ucgenAlani(taban, yukseklik) {
+            return (taban * yukseklik) / 2;
+        }
+
+        function cemberHesapla(r) {
+            let alan = Math.PI * r * r;
+            let cevre = 2 * Math.PI * r;
+            return "Alan: " + alan.toFixed(2) + ", Çevre: " + cevre.toFixed(2);
+        }
+
+        let uAlan = ucgenAlani(10, 5);
+        let cSonuc = cemberHesapla(4);
+
+        document.getElementById("cikti").innerHTML = `
+            <p><strong>Tabanı 10, Yüksekliği 5 olan Üçgenin Alanı:</strong> ${uAlan}</p>
+            <p><strong>Yarıçapı 4 olan Çemberin Alan ve Çevresi:</strong> ${cSonuc}</p>
+        `;
+    </script>
+</body>
+</html>

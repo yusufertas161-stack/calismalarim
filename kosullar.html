@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Koşul Yapıları Ödevi</title>
+</head>
+<body>
+    <h2>1. Not Hesaplama</h2>
+    <input type="number" id="vize" placeholder="Vize Notu">
+    <input type="number" id="final" placeholder="Final Notu">
+    <button onclick="notHesapla()">Hesapla</button>
+    <p id="notSonuc"></p>
+
+    <hr>
+
+    <h2>2. Hava Sıcaklığı Kontrolü</h2>
+    <input type="number" id="sicaklik" placeholder="Sıcaklık (°C)">
+    <button onclick="durumBul()">Durumu Gör</button>
+    <p id="sicaklikSonuc"></p>
+
+    <script>
+        function notHesapla() {
+            let vize = Number(document.getElementById("vize").value);
+            let final = Number(document.getElementById("final").value);
+            let ortalama = (vize * 0.40) + (final * 0.60);
+            
+            if (ortalama < 50) {
+                document.getElementById("notSonuc").innerText = "Ortalama: " + ortalama.toFixed(1) + " - Kaldı";
+            } else {
+                document.getElementById("notSonuc").innerText = "Ortalama: " + ortalama.toFixed(1) + " - Geçti";
+            }
+        }
+
+        function durumBul() {
+            let s = Number(document.getElementById("sicaklik").value);
+            let mesaj = "";
+
+            if (s < 0) {
+                mesaj = "dondurucu";
+            } else if (s < 15) {
+                mesaj = "soğuk";
+            } else if (s < 25) {
+                mesaj = "ılık";
+            } else {
+                mesaj = "sıcak";
+            }
+
+            document.getElementById("sicaklikSonuc").innerText = "Hava Durumu: " + mesaj;
+        }
+    </script>
+</body>
+</html>

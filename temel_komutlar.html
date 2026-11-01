@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Temel Komutlar Ödevi</title>
+</head>
+<body>
+    <h2>Temel Komutlar Ödevi</h2>
+    <button onclick="odev1()">1. Sayıyı 1 Artır</button>
+    <button onclick="odev2()">2. 3 Sayının Ortalaması (Alert)</button>
+
+    <script>
+        function odev1() {
+            let veri = prompt("Bir sayı giriniz:");
+            if (veri !== null) {
+                let sayi = Number(veri) + 1;
+                document.write("<b>Girilen sayının 1 fazlası: " + sayi + "</b>");
+            }
+        }
+
+        function odev2() {
+            let s1 = Number(prompt("1. Sayıyı girin:"));
+            let s2 = Number(prompt("2. Sayıyı girin:"));
+            let s3 = Number(prompt("3. Sayıyı girin:"));
+            
+            let ortalama = (s1 + s2 + s3) / 3;
+            alert("Girdiğiniz 3 sayının ortalaması: " + ortalama.toFixed(2));
+        }
+    </script>
+</body>
+</html>

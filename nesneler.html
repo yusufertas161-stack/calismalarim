@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sınıf ve Nesne Ödevi</title>
+</head>
+<body>
+    <h2>Dikdörtgen Sınıfı ve Nesne Ödevi</h2>
+    <button onclick="dikdortgenOlustur()">Hesapla</button>
+    <p id="sonuc"></p>
+
+    <script>
+        class Dikdortgen {
+            constructor(genislik, yukseklik) {
+                this.genislik = genislik;
+                this.yukseklik = yukseklik;
+            }
+
+            alanHesapla() {
+                return this.genislik * this.yukseklik;
+            }
+
+            cevreHesapla() {
+                return 2 * (this.genislik + this.yukseklik);
+            }
+        }
+
+        function dikdortgenOlustur() {
+            let g = Number(prompt("Genişlik giriniz:"));
+            let y = Number(prompt("Yükseklik giriniz:"));
+
+            if (g && y) {
+                let d1 = new Dikdortgen(g, y);
+                document.getElementById("sonuc").innerHTML = 
+                    "<b>Dikdörtgen Alanı:</b> " + d1.alanHesapla() + "<br>" +
+                    "<b>Dikdörtgen Çevresi:</b> " + d1.cevreHesapla();
+            }
+        }
+    </script>
+</body>
+</html>

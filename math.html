@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Nesnesi Ödevi</title>
+</head>
+<body>
+    <h2>Math ve Metin İşlemleri Ödevi</h2>
+    <button onclick="calistir()">Ödev İşlemlerini Çalıştır</button>
+
+    <script>
+        function calistir() {
+            // 1. Karekök alma
+            let sayi = prompt("Karekökü alınacak bir sayı girin:");
+            if (sayi) {
+                let kok = Math.sqrt(Number(sayi));
+                document.write("<h3>1. Karekök Sonucu:</h3> " + kok + "<br><hr>");
+            }
+
+            // 2. 5 Adet rastgele sayı üretme
+            document.write("<h3>2. Rastgele 5 Sayı:</h3>");
+            for (let i = 1; i <= 5; i++) {
+                let rastgele = Math.floor(Math.random() * 100) + 1;
+                document.write(i + ". Sayı: " + rastgele + "<br>");
+            }
+            document.write("<hr>");
+
+            // 3. Çember alan ve çevre
+            let r = prompt("Çemberin yarıçapını girin:");
+            if (r) {
+                let yariCap = Number(r);
+                let alan = Math.PI * yariCap * yariCap;
+                let cevre = 2 * Math.PI * yariCap;
+                document.write("<h3>3. Çember Hesaplama:</h3> Alan: " + alan.toFixed(2) + " | Çevre: " + cevre.toFixed(2) + "<br><hr>");
+            }
+
+            // 4. Metni büyük harfe çevirme
+            let metin = prompt("Bir metin giriniz:");
+            if (metin) {
+                document.write("<h3>4. Büyük Harf Sonucu:</h3> " + metin.toUpperCase());
+            }
+        }
+    </script>
+</body>
+</html>
