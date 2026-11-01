@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyuncu Rank Hesaplama</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f1923;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #1f2326;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            width: 320px;
+            text-align: center;
+            border: 1px solid #ff4655;
+        }
+        h2 {
+            color: #ff4655;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #0f1923;
+            color: white;
+            text-align: center;
+        }
+        button {
+            width: 95%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #ff4655;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e03e4d;
+        }
+        .sonuc-kutu {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #0f1923;
+            border-radius: 5px;
+            display: none;
+        }
+        .rank-adi {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>VALORANK HESAPLA</h2>
+        
+        <input type="number" id="toplamMac" placeholder="Toplam Maç Sayısı">
+        <input type="number" id="winSayisi" placeholder="Kazanılan Maç (Win)">
+        
+        <button onclick="rankHesapla()">RÜTBENİ BULT</button>
+
+        <div id="sonucKutusu" class="sonuc-kutu">
+            <p id="winRateMetin"></p>
+            <div id="rankMetin" class="rank-adi"></div>
+        </div>
+    </div>
+
+    <script>
+        function rankHesapla() {
+            let toplam = Number(document.getElementById("toplamMac").value);
+            let win = Number(document.getElementById("winSayisi").value);
+
+            // Boş veya hatalı giriş kontrolü
+            if (toplam <= 0 || win < 0 || win > toplam) {
+                alert("Lütfen geçerli maç değerleri giriniz!");
+                return;
+            }
+
+            // Kazanma oranı (Win Rate %)
+            let winRate = (win / toplam) * 100;
+            let rank = "";
+            let renk = "";
+
+            // Rank Mantığı (Win Rate % Oranına Göre)
+            if (winRate >= 90) {
+                rank = "RADYANT (Profesyonel)";
+                renk = "#ffffa0";
+            } else if (winRate >= 80) {
+                rank = "ÖLÜMSÜZLÜK (Üst Seviye)";
+                renk = "#bb3d52";
+            } else if (winRate >= 70) {
+                rank = "YÜCELİK (Başarılı)";
+                renk = "#28a745";
+            } else if (winRate >= 60) {
+                rank = "ELMAS (İyi Oyuncu)";
+                renk = "#70a1ff";
+            } else if (winRate >= 50) {
+                rank = "PLATİN (Ortalama Üstü)";
+                renk = "#2ed573";
+            } else if (winRate >= 40) {
+                rank = "ALTIN (Ortalama)";
+                renk = "#eccc68";
+            } else if (winRate >= 30) {
+                rank = "GÜMÜŞ (Gelişmekte)";
+                renk = "#a4b0be";
+            } else {
+                rank = "BRONZ (Çaylak)";
+                renk = "#cd7f32";
+            }
+
+            // Ekran Çıktıları
+            document.getElementById("winRateMetin").innerText = "Kazanma Oranı: %" + winRate.toFixed(1);
+            
+            let rankElement = document.getElementById("rankMetin");
+            rankElement.innerText = "Rütbe: " + rank;
+            rankElement.style.color = renk;
+
+            document.getElementById("sonucKutusu").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
